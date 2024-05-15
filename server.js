@@ -5,6 +5,9 @@ import cookieParser from 'cookie-parser';
 import { ErrorMiddleware } from './src/errorHandler/errorHandler.js';
 import loggerMiddeware from './src/middlewares/logger.middleware.js';
 import userRouter from './src/features/users/routes/user.routes.js';
+import productRouter from './src/features/products/routes/product.routes.js';
+import jwtAuth from './src/middlewares/jwt.middleware.js';
+import cartRouter from './src/features/cart/routes/cart.routes.js';
 import getClient from './config/mongodb.js';
 
 // Setting the http server using express library
@@ -32,6 +35,11 @@ app.get("/", (req,res)=>{
 // User Route
 app.use("/api/user",userRouter);
 
+// Product Route
+app.use("/api/product",jwtAuth, productRouter);
+
+// Cart Route
+app.use("/api/cart",jwtAuth, cartRouter);
 
 // Error Handling
 app.use(ErrorMiddleware)

@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 import JWT from "jsonwebtoken";
 import bcrypt from "bcrypt";
-import { CustomError } from "../../../errorHandler/errorHandler.js";
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -52,7 +51,7 @@ userSchema.methods.comparePassword = async function(password){
 
 userSchema.methods.getJWTToken = function(){
   return JWT.sign(
-      {id:this._id}, 
+      {id:this._id, type:this.type}, 
       process.env.JWT_SECRET_KEY, 
       {expiresIn:process.env.JWT_Expire}
     )
