@@ -33,10 +33,9 @@ Cart::
 CartSchema = {userid,productid,quantity}
 userScheme = Schema = Name,email,password,type,age,cartitem>[cartid]
 Schema = name,description,price, category>[categories],stock,ratingsid>[ratingid]
-1. Add items to Cart
-2. Get items of cart
-3. Remove items from cart
-4. Update items of cart (using cardid)
+1. Add and update items to Cart - [productid]
+2. Get items of cart - [userid]
+3. Remove items from cart - [cartid]
 
 Order::
 1. Create a order
@@ -78,6 +77,17 @@ Users
     "age":30
 }
 
+{
+  "name": "rahul",
+  "email": "rahul@outlook.com",
+  "password": "'rahul@outlook.com",
+  "type": "seller",
+  "age": 30
+}
+
+{  "email": "raj@gamil.com",
+  "password": "raj@gamil.com",
+}
 # Products Data
 
 const laptop = {

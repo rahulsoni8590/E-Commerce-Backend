@@ -33,7 +33,14 @@ const userSchema = new mongoose.Schema({
       required: [true, "Age is required"],
       min: [18, "Age must be at least 0"],
       max: [100, "Age must be at most 100"]
-    }
+    },
+    cart:
+    [
+      {
+        type:mongoose.Schema.Types.ObjectId,
+        ref: "Cart"
+      }
+    ]
   });
   
 userSchema.pre("save", async function(next){
