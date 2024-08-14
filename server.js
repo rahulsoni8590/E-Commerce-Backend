@@ -8,6 +8,7 @@ import userRouter from './src/features/users/routes/user.routes.js';
 import productRouter from './src/features/products/routes/product.routes.js';
 import jwtAuth from './src/middlewares/jwt.middleware.js';
 import cartRouter from './src/features/cart/routes/cart.routes.js';
+import orderRouter from './src/features/order/routes/order.routes.js';
 import getClient from './config/mongodb.js';
 
 // Setting the http server using express library
@@ -40,6 +41,9 @@ app.use("/api/product",jwtAuth, productRouter);
 
 // Cart Route
 app.use("/api/cart",jwtAuth, cartRouter);
+
+// Order Route
+app.use("/api/order",jwtAuth, orderRouter);
 
 // Error Handling
 app.use(ErrorMiddleware)
